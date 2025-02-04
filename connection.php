@@ -1,15 +1,17 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "gsuinventory";
+//connection to database
+$conn = mysqli_connect("localhost: ", "root", "", "gsuinventory");
+if($conn) {
 
-$conn = new mysqli($host, $user, $password, $database);
 
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+
 }
+if(isset($_POST['submit'])) {
 
-echo "Connected successfully!";
+	$user = $_POST['username'];
+	$password = $_POST['password'];
+
+if (empty($user) || empty($pass)) {
+
 
 ?>
