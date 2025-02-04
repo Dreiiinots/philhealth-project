@@ -19,7 +19,12 @@ $result = $conn->query($sql);
 if($result->num_rows > 0) {
   // fetch user's data
   $row = $result->fetch_assoc();
-
+  } else {
+    $insertQuery="INSERT INTO users(employee_id, employee_status, employee_username, employee_password)
+                  VALUES ('$employee_id', '$employee_status', '$employee_username', '$employee_password')";
+    if($conn->query($insertQuery)==TRUE) {
+      header("location: index.html)");
+    }
   if ($row['password'] === "") {
     echo "Login Successfull!";
   } else {
